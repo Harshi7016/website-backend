@@ -124,6 +124,6 @@ router.post('/', authenticate, authorizeOwner, createTask, tasksController.addNe
  *           schema:
  *             $ref: '#/components/schemas/errors/badImplementation'
  */
-router.patch('/:id', authenticate, authorizeOwner, updateTask, tasksController.updateTask)
+router.patch('/:id', authenticate, updateTask, tasksController.updateTask)
 
 module.exports = router
