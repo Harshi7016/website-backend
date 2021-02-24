@@ -1,4 +1,4 @@
-export const data = [
+export const accountOwners = [
   {
     username: 'ankur',
     first_name: 'Ankur',
