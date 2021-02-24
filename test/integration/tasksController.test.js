@@ -148,8 +148,6 @@ describe('Tasks', function () {
           expect(res).to.have.status(403)
           expect(res.body).to.be.a('object')
           expect(res.body.message).to.equal('Unauthorized User')
-          expect(res.body.id).to.be.a('string')
-          expect(res.body.task).to.be.a('object')
           return done()
         })
     })
@@ -250,14 +248,13 @@ describe('Tasks', function () {
         .patch('/tasks/taskid')
         .set('cookie', `rds-session=${jwt}`)
         .send({
-          ownerId: 'harshith'
+          ownerId: 'ankur'
         })
         .end((err, res) => {
           if (err) { return done() }
           expect(res).to.have.status(403)
           expect(res.body).to.be.a('object')
           expect(res.body.message).to.equal('Unauthorized User')
-
           return done()
         })
     })
