@@ -1,6 +1,6 @@
 
 const userQuery = require('../models/users')
-const accountOwners = require('../mocktestdata/appOwners.json')
+const accountOwners = require('../mockdata/appOwners.json')
 
 /**
  * Fetches the data about our users
