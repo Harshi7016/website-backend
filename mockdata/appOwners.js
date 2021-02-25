@@ -49,4 +49,4 @@ const accountOwners = [
   }
 ]
 
-module.exports ={accountOwners}
+module.exports = { accountOwners }
