@@ -1,4 +1,4 @@
-export const accountOwners = [
+const accountOwners = [
   {
     username: 'ankur',
     first_name: 'Ankur',
@@ -48,3 +48,5 @@ export const accountOwners = [
     incompleteUserDetails: false
   }
 ]
+
+module.exports ={accountOwners}
