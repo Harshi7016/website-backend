@@ -1,4 +1,4 @@
-const accountOwners = [
+export const appOwners = [
   {
     username: 'ankur',
     first_name: 'Ankur',
@@ -48,5 +48,3 @@ const accountOwners = [
     incompleteUserDetails: false
   }
 ]
-
-module.exports = { accountOwners }
