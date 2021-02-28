@@ -10,7 +10,7 @@ const githubUserInfo = require('../auth/githubUserInfo')()
 module.exports = () => {
   return [
     {
-      username: 'ankur',
+      username: 'anku',
       first_name: 'Ankur',
       last_name: 'Narkhede',
       yoe: 0,
