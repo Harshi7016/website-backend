@@ -116,7 +116,8 @@ describe('Tasks', function () {
         })
     })
 
-    it('Should return unauthorized sser error response', function (done) {
+    it('Should return unauthorized user error response', function (done) {
+      jwt = authService.generateAuthToken('harshith')
       chai
         .request(app)
         .post('/tasks')
