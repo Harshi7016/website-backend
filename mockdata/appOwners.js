@@ -1,6 +1,6 @@
 const appOwners = [
   {
-    username: 'ankur',
+    username: 'ankurk',
     first_name: 'Ankur',
     last_name: 'Narkhede',
     github_id: 'ankurnarkhede',

@@ -121,7 +121,6 @@ describe('Tasks', function () {
         .request(app)
         .post('/tasks')
         .set('cookie', `${cookieName}=${jwt}`)
-        .set({ username: 'anku' })
         .send({
           title: 'Test task',
           purpose: 'To Test mocha',
