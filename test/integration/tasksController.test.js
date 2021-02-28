@@ -115,6 +115,45 @@ describe('Tasks', function () {
           return done()
         })
     })
+
+    it('Should return unauthorized sser error response', function (done) {
+      chai
+        .request(app)
+        .post('/tasks')
+        .set('cookie', `${cookieName}=${jwt}`)
+        .send({
+          title: 'Test task',
+          purpose: 'To Test mocha',
+          featureUrl: '<testUrl>',
+          type: 'Dev | Group',
+          links: [
+            'test1'
+          ],
+          endsOn: '<unix timestamp>',
+          startedOn: '<unix timestamp>',
+          status: 'completed',
+          ownerId: '<app owner user id>',
+          percentCompleted: 10,
+          dependsOn: [
+            'd12',
+            'd23'
+          ],
+          participants: ['ankur'],
+          completionAward: { gold: 3, bronze: 300 },
+          lossRate: { gold: 1 },
+          isNoteworthy: true
+        })
+        .end((err, res) => {
+          if (err) { return done(err) }
+          expect(res).to.have.status(403)
+          expect(res.body).to.be.a('object')
+          expect(res.body.message).to.equal('Unauthorized User')
+          expect(res.body.id).to.be.a('string')
+          expect(res.body.task).to.be.a('object')
+
+          return done()
+        })
+    })
   })
 
   describe('GET /tasks', function () {
