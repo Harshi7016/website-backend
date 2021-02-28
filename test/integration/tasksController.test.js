@@ -116,7 +116,7 @@ describe('Tasks', function () {
         })
     })
 
-    it('Should return unauthorized user error response', function (done) {
+    it('Should return 403 if user is unauthorized', function (done) {
       chai
         .request(app)
         .post('/tasks')
@@ -239,6 +239,24 @@ describe('Tasks', function () {
         .end((err, res) => {
           if (err) { return done(err) }
           expect(res).to.have.status(204)
+
+          return done()
+        })
+    })
+
+    it('Should return 403 if user is unauthorized', function (done) {
+      chai
+        .request(app)
+        .patch('/tasks/taskid')
+        .set('cookie', `${cookieName}=${jwt}`)
+        .send({
+          ownerId: 'sumit'
+        })
+        .end((err, res) => {
+          if (err) { return done(err) }
+          expect(res).to.have.status(403)
+          expect(res.body).to.be.a('object')
+          expect(res.body.message).to.equal('Unauthorized User')
 
           return done()
         })
