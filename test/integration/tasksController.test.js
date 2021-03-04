@@ -248,8 +248,9 @@ describe('Tasks', function () {
       chai
         .request(app)
         .patch('/tasks/' + taskId1)
-        .set('cookie', `${cookieName}=${jwt}`)
         .set('username', 'harshith')
+        .set('cookie', `${cookieName}=${jwt}`)
+
         .send({
           ownerId: 'sumit'
         })
