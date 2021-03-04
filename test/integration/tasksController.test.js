@@ -250,7 +250,6 @@ describe('Tasks', function () {
         .request(app)
         .patch('/tasks/taskid')
         .set('cookie', `${cookieName}=${jwt}`)
-        .set('username', 'harshith')
         .send({
           ownerId: 'sumit'
         })
