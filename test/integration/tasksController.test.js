@@ -120,7 +120,6 @@ describe('Tasks', function () {
       chai
         .request(app)
         .set('cookie', `${cookieName}=${jwt}`)
-        .set('username', 'anku')
         .post('/tasks')
 
         .send({
