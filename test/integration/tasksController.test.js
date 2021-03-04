@@ -245,11 +245,11 @@ describe('Tasks', function () {
     })
 
     it('Should return 403 if user is unauthorized', function (done) {
-      jwt = authService.generateAuthToken('harshith')
       chai
         .request(app)
-        .patch('/tasks/taskid')
+        .patch('/tasks/' + taskId1)
         .set('cookie', `${cookieName}=${jwt}`)
+        .set('username', 'harshith')
         .send({
           ownerId: 'sumit'
         })
