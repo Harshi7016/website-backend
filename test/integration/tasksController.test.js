@@ -119,8 +119,10 @@ describe('Tasks', function () {
     it('Should return 403 if user is unauthorized', function (done) {
       chai
         .request(app)
-        .post('/tasks')
         .set('cookie', `${cookieName}=${jwt}`)
+        .set('username', 'anku')
+        .post('/tasks')
+
         .send({
           title: 'Test task',
           purpose: 'To Test mocha',
