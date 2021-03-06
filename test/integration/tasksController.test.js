@@ -19,7 +19,6 @@ describe('Tasks', function () {
   before(async function () {
     const userId = await addUser()
     jwt = authService.generateAuthToken({ userId })
-
     const taskData = [{
       title: 'Test task',
       purpose: 'To Test mocha',
@@ -117,6 +116,7 @@ describe('Tasks', function () {
     })
 
     it('Should return 403 if user is unauthorized', function (done) {
+      jwt = authService.generateAuthToken(4454218)
       chai
         .request(app)
         .post('/tasks')
@@ -245,12 +245,12 @@ describe('Tasks', function () {
     })
 
     it('Should return 403 if user is unauthorized', function (done) {
+      jwt = authService.generateAuthToken(4454218)
       chai
         .request(app)
         .patch('/tasks/' + taskId1)
-        .set('username', 'harshith')
         .set('cookie', `${cookieName}=${jwt}`)
-
+        .set('username', 'harshith')
         .send({
           ownerId: 'sumit'
         })
